@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Repère les attaques avant qu'elles ne t'atteignent : le Grimoire gratuit</title>
+<meta name="description" content="Les 24 sophismes et attaques qu'on utilise contre toi au bureau, à table et entre amis. Le Grimoire gratuit, avec sa version vidéo.">
+<meta name="theme-color" content="#16130F">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Repère les attaques avant qu'elles ne t'atteignent">
+<meta property="og:description" content="Les 24 sophismes et attaques qu'on utilise contre toi au bureau, à table et entre amis. Le Grimoire gratuit.">
+<meta property="og:url" content="https://grimoire.nicolasdequiedt.com/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://grimoire.nicolasdequiedt.com/assets/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Le Grimoire : un repas de famille où un homme pointe du doigt le héros en t-shirt orange">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/atkinson-hyperlegible-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.card{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);max-width:1120px}
+.copy{padding:clamp(28px,4.4vw,52px);display:flex;flex-direction:column;justify-content:center}
+h1{font-size:clamp(38px,4.6vw,54px);margin-bottom:16px}
+h1 .l1,h1 em{display:block}
+.lede{font-size:clamp(17px,1.6vw,18.5px);line-height:1.55;color:#2C2620;margin:0 0 14px}
+.lede b{color:var(--ink)}
+.meta{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0 0 18px}
+.meta svg{width:16px;height:16px;color:var(--orange);flex:none}
+
+form{display:grid;grid-template-columns:1fr;gap:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+input[type=email]{
+  font:inherit;font-size:17px;width:100%;padding:15px 16px;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:12px;transition:border-color .15s,box-shadow .15s;
+}
+input::placeholder{color:#857B6D}
+input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,111,12,.22)}
+input[aria-invalid=true]{border-color:var(--alarm)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.go{
+  margin-top:2px;display:flex;align-items:center;justify-content:center;gap:12px;
+  font-family:var(--display);font-size:20px;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--orange);color:#1A0E03;border:0;border-radius:999px;padding:16px 28px;cursor:pointer;
+  box-shadow:0 12px 26px -12px rgba(242,111,12,.75),inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .15s,background .15s,box-shadow .15s;
+}
+.go:hover{background:#FF8021;transform:translateY(-1px)}
+.go:active{transform:none}
+.go svg{width:18px;height:18px;transition:transform .15s}
+.go:hover svg{transform:translateX(3px)}
+.go[disabled]{opacity:.75;cursor:progress;transform:none}
+.err{margin:2px 0 0;font-size:15px;color:var(--alarm);font-weight:700}
+.legal{font-family:var(--mono);font-size:11px;line-height:1.7;color:#6B6357;margin:14px 0 0}
+.product{font-size:14px;color:#5C5347;margin:10px 0 0}
+.product b{color:var(--ink)}
+
+.visual{position:relative;background:var(--paper-2);padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;justify-content:center;gap:24px}
+.visual img{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 22px 44px -22px rgba(22,19,15,.55),0 0 0 1px rgba(22,19,15,.06);animation:settle 1.1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{transform:scale(1.04)}to{transform:none}}
+.inside{margin:0}
+.inside p{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:0 0 12px}
+.inside ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.inside li{position:relative;padding-left:22px;font-size:16px;line-height:1.45;color:#2C2620;font-weight:700}
+.inside li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:2px;background:var(--orange);transform:rotate(45deg)}
+.inside .more{font-family:var(--body);font-size:15px;font-weight:400;letter-spacing:0;text-transform:none;color:#5C5347;margin:12px 0 0}
+
+@media (max-width:860px){
+  body{align-items:flex-start}
+  .card{grid-template-columns:1fr;max-width:560px}
+  .copy{padding:26px 22px 28px}
+  h1{font-size:clamp(34px,9.6vw,44px);margin-bottom:14px}
+  .lede{font-size:16.5px;margin-bottom:12px}
+  .meta{font-size:11px;letter-spacing:.02em;margin-bottom:14px}
+  input[type=email]{padding:14px}
+  .visual{padding:22px;gap:20px}
+}
+@media (prefers-reduced-motion:reduce){.visual img{animation:none}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<main class="card">
+  <section class="copy">
+    <p class="eyebrow">Grimoire gratuit · 24 fiches</p>
+    <h1><span class="l1">Repère les attaques</span> <em>avant qu'elles ne t'atteignent.</em></h1>
+    <p class="lede">Le « calme-toi » en pleine réunion. La vanne au repas de famille, et les rires autour de la table.</p>
+    <p class="lede">Le Grimoire met un nom sur <b>les 24 sophismes et attaques qu'on utilise contre toi</b>, au bureau, à table et entre amis. Pour que tu les voies venir.</p>
+
+    <p class="meta"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3.5h9l3 3V16.5H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 9.5h6M7 12.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>24 fiches · moins de 30 min · par mail + vidéo</p>
+
+    <form id="optin" novalidate>
+      <div>
+        <label class="sr" for="f_email">Email</label>
+        <input type="email" id="f_email" name="EMAIL" placeholder="Ton email" autocomplete="email" inputmode="email" required>
+      </div>
+      <input class="hp" type="text" id="f_check" name="email_address_check" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="err" id="err" role="alert" hidden></p>
+      <button class="go" id="go" type="submit">
+        <span id="golabel">Recevoir le Grimoire</span>
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m0 0-4.5-4.5M15 10l-4.5 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+    <p class="product"><b>Le Grimoire de la nouvelle manipulation</b>, par Nicolas Dequiedt</p>
+    <p class="legal">En validant, tu rejoins ma liste email. Désinscription en un clic, aucun partage à des tiers.</p>
+    <noscript><p class="err">Cette page a besoin de JavaScript pour envoyer ton inscription.</p></noscript>
+  </section>
+
+  <aside class="visual">
+    <img src="/assets/jaquette.webp" width="960" height="540" alt="Repas de famille : un homme pointe du doigt le héros en t-shirt orange, qui reste silencieux devant les autres convives">
+    <div class="inside">
+      <p>Dans le Grimoire</p>
+      <ul>
+        <li>Il t'humilie avec une blague, puis te reproche de ne pas avoir d'humour</li>
+        <li>Il transforme ton désaccord en problème d'humeur</li>
+        <li>Il caricature ton argument</li>
+      </ul>
+      <p class="more">Et 21 autres, chacune avec la scène, le mécanisme et le signal qui la trahit.</p>
+    </div>
+  </aside>
+</main>
+
+<script>
+/* ============================================================
+   CONFIG : les deux seules choses à changer un jour
+   ============================================================ */
+const CONFIG = {
+  // Formulaire Brevo « FORM GRIMOIRE ». Si tu supprimes et recrées le formulaire,
+  // remplace cette adresse (Brevo > Formulaires > Partager > lien).
+  brevoUrl: "https://2257aae7.sibforms.com/serve/MUIFACc6vsMI4Y9wKFI5cPIqc6cVkJE6oT_BAxVvZViq9voZ8RxghjOjEaEwWBc1rVnqgh17mtmqumKr5PB8Qv0O22g6msSFXQnplwjRWroExfXE5wpWcEYhPaeMx1bpHSBTkSnN1I8NtGcn1RA5zts5GziAe2YVCJ10dN9UtBpXSE5fqkE-XicVCz-mAlGUU6OTiOgi1ryi9k4GMQ==",
+  // Page « Accès débloqué » (qui redirige ensuite vers la vidéo : voir acces.html)
+  pageAcces: "/acces?ok=1"
+};
+
+const params = new URLSearchParams(location.search);
+// Source de trafic (?src=youtube-xxx). Elle n'arrive dans Brevo que si l'attribut SOURCE
+// existe ET est ajouté au formulaire en champ caché.
+const src = (params.get("src") || "direct").slice(0, 80);
+
+const form = document.getElementById("optin");
+const email = document.getElementById("f_email");
+const check = document.getElementById("f_check");
+const err = document.getElementById("err");
+const go = document.getElementById("go");
+const goLabel = document.getElementById("golabel");
+const LABEL = goLabel.textContent;
+
+function fail(field, msg){
+  field.setAttribute("aria-invalid", "true");
+  err.textContent = msg; err.hidden = false;
+  field.focus();
+}
+
+form.addEventListener("submit", async ev => {
+  ev.preventDefault();
+  email.removeAttribute("aria-invalid"); err.hidden = true;
+
+  const e = email.value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)) return fail(email, "Cette adresse email ne semble pas valide.");
+
+  go.disabled = true; goLabel.textContent = "Envoi en cours…";
+
+  const body = new URLSearchParams();
+  body.append("EMAIL", e);
+  body.append("email_address_check", check.value);   // anti-robot Brevo : doit rester vide
+  body.append("locale", "fr");
+  body.append("SOURCE", src);
+
+  try {
+    // no-cors : Brevo ne répond pas en lisible, on ne détecte donc que les pannes réseau.
+    // Si Brevo met plus de 6 s, on continue quand même : la requête est partie (keepalive).
+    await Promise.race([
+      fetch(CONFIG.brevoUrl, { method: "POST", mode: "no-cors", body, keepalive: true }),
+      new Promise(res => setTimeout(res, 6000))
+    ]);
+  } catch (_) {
+    go.disabled = false; goLabel.textContent = LABEL;
+    err.textContent = "Connexion impossible pour le moment. Vérifie ta connexion et réessaie.";
+    err.hidden = false;
+    return;
+  }
+  location.href = CONFIG.pageAcces;
+});
+</script>
+</body>
+</html>

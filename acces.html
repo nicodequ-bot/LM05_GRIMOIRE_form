@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Accès au Grimoire débloqué</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16130F">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/base.css">
+<noscript>
+  <meta http-equiv="refresh" content="4;url=https://www.nicolasdequiedt.com/video_grimoire">
+  <style>main{visibility:visible!important}</style>
+</noscript>
+<style>
+.card{max-width:560px;padding:clamp(28px,6vw,44px) clamp(22px,5vw,40px)}
+main{visibility:hidden}               /* rendu après le contrôle d'accès (voir script) */
+main.ready{visibility:visible}
+h1{font-size:clamp(32px,7.6vw,42px);display:flex;align-items:center;gap:14px;flex-wrap:nowrap;line-height:1.1}
+h1 > span:first-child{min-width:0}
+.badge{flex:none;width:.86em;height:.86em;border-radius:50%;background:var(--sea);display:grid;place-items:center;animation:pop .5s .15s cubic-bezier(.2,1.4,.4,1) both}
+.badge svg{width:56%;height:56%}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
+.sub{font-size:19px;line-height:1.55;color:#3A332A;margin:16px 0 0}
+.bar{height:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;margin:26px 0 22px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--orange);border-radius:999px;animation:fill 3.8s linear forwards}
+@keyframes fill{to{width:100%}}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+.steps li{font-size:18px;color:#9A8F80;padding-left:32px;position:relative;transition:color .2s}
+.steps li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border:2px solid var(--line);border-radius:50%}
+.steps li.on{color:var(--ink);font-weight:700}
+.steps li.on::before{border-color:var(--orange);border-top-color:transparent;animation:spin .8s linear infinite}
+.steps li.done{color:var(--ink)}
+.steps li.done::before{
+  border-color:var(--sea);background:var(--sea) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.6 6.3 5 8.6l4.4-5' fill='none' stroke='%23fff' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
+  animation:none;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fallback{font-size:15px;color:#5C5347;margin:28px 0 0;padding-top:18px;border-top:1px dashed var(--line)}
+.fallback a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.fallback a:hover{color:var(--orange)}
+@media (prefers-reduced-motion:reduce){
+  .badge{animation:none}
+  .bar span{animation:none;width:100%}
+  .steps li.on::before{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<main class="card" id="page">
+  <p class="eyebrow">Grimoire · Accès gratuit</p>
+  <h1>
+    <span>Accès débloqué</span>
+    <span class="badge" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2.6 6.3 5 8.6l4.4-5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </h1>
+  <p class="sub">Félicitations, tu as débloqué ton accès au Grimoire.</p>
+
+  <div class="bar" role="progressbar" aria-label="Préparation de ton accès" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+
+  <ol class="steps" aria-live="polite">
+    <li id="s1" class="on">Inscription enregistrée</li>
+    <li id="s2">Grimoire en route vers ta boîte mail</li>
+    <li id="s3">Ouverture de la version vidéo…</li>
+  </ol>
+
+  <p class="fallback">Si la vidéo ne s'ouvre pas, <a id="manual" href="https://www.nicolasdequiedt.com/video_grimoire">clique ici</a>.</p>
+</main>
+
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+const VIDEO_URL = "https://www.nicolasdequiedt.com/video_grimoire";   // page vidéo Podia
+const TOTAL_MS = 3800;                                                 // durée avant la redirection
+
+// Contrôle d'accès léger : on n'affiche « Accès débloqué » qu'après une inscription
+// (la page de capture ajoute ?ok=1). Un visiteur qui arrive ici directement retourne à la capture.
+const params = new URLSearchParams(location.search);
+if (params.get("ok") !== "1") {
+  location.replace("/");
+} else {
+  document.getElementById("page").classList.add("ready");
+  const mark = (id, state) => { document.getElementById(id).className = state; };
+  // Déroulé : 0 → 0,9 s inscription ; 0,9 → 2,1 s mail ; 2,1 s → ouverture de la vidéo
+  setTimeout(() => { mark("s1", "done"); mark("s2", "on"); }, 900);
+  setTimeout(() => { mark("s2", "done"); mark("s3", "on"); }, 2100);
+  setTimeout(() => { mark("s3", "done"); location.replace(VIDEO_URL); }, TOTAL_MS);
+}
+</script>
+</body>
+</html>

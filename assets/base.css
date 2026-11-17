@@ -1,0 +1,53 @@
+/* Base commune aux deux pages (capture + accès débloqué) : polices, couleurs, fond, carte. */
+@font-face{font-family:"Anton";font-weight:400;font-style:normal;font-display:swap;src:url(/assets/fonts/anton-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-weight:400;font-style:normal;font-display:swap;src:url(/assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-weight:700;font-style:normal;font-display:swap;src:url(/assets/fonts/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;font-style:normal;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:700;font-style:normal;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-700-normal.woff2) format("woff2")}
+
+:root{
+  --ink:#16130F;
+  --paper:#FBF4E9;
+  --paper-2:#F1E7D6;
+  --orange:#F26F0C;
+  --sea:#1B6B6F;
+  --alarm:#B4342A;
+  --warm:#7C7266;
+  --line:#D9CCB6;
+  --display:"Anton","Haettenschweiler","Arial Narrow",Impact,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;min-height:100svh;
+  background:var(--ink);color:var(--ink);
+  font-family:var(--body);font-size:18px;line-height:1.6;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(16px,4vw,48px) max(16px,env(safe-area-inset-right)) clamp(16px,4vw,48px) max(16px,env(safe-area-inset-left));
+}
+/* Fond : l'illustration de la jaquette, floutée à l'export (léger), assombrie. */
+.bg{position:fixed;inset:0;z-index:-1;background:var(--ink) url(/assets/fond.jpg) center/cover no-repeat;transform:scale(1.08)}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,19,15,.5) 0%,rgba(22,19,15,.3) 45%,rgba(22,19,15,.72) 100%)}
+
+.card{
+  position:relative;width:100%;background:var(--paper);border-radius:24px;overflow:hidden;
+  box-shadow:0 1px 0 #fff inset,0 0 0 1px rgba(255,255,255,.06),0 40px 90px -30px rgba(0,0,0,.85);
+  animation:rise .7s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--orange);margin:0 0 14px;display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--orange)}
+h1{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.96;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--orange)}
+:focus-visible{outline:2.5px solid var(--orange);outline-offset:2px}
+
+@media (prefers-reduced-motion:reduce){
+  .card{animation:none}
+  *{transition:none!important}
+}
