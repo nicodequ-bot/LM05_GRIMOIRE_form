@@ -27,3 +27,4 @@ L'envoi vers Brevo se fait en `no-cors` : la page ne peut pas lire la réponse d
 ## Versions
 
 - V01 (17/11/2026) : première version, gabarit Afuera (LM04) adapté au Grimoire V2 (24 fiches).
+- V02 (17/11/2026) : titre « Repérer le manque de respect avant qu'il ne t'atteigne » (repris du formulaire Brevo), accroche réécrite en deux scènes explicites (réunion, repas de famille).
